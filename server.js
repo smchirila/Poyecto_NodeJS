@@ -3,7 +3,7 @@ const Hapi = require('hapi');
 const Settings = require('./settings');
 const server = new Hapi.Server({ port: Settings.port });
 const Routes = require('./lib/route');
-
+const Models = require('./lib/models/');
 server.route(Routes);
 
 /*server.route({
@@ -20,4 +20,9 @@ process.on('unhandledRejection', (err) => {
     console.log(err);
     process.exit(1);
 });
-init();
+
+Models.sequelize.sync().then(() => {
+    init();
+});
+
+//init();
