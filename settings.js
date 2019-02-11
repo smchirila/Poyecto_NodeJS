@@ -7,7 +7,7 @@ module.exports = {
     development: {
         db: {
             dialect: 'sqlite',
-            storage: ':memory:',
+            storage: 'db/notes.db',
             operatorsAliases: false,
         },
     },
